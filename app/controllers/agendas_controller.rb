@@ -1,5 +1,5 @@
 class AgendasController < ApplicationController
-  # before_action :set_agenda, only: %i[show edit update destroy]
+  before_action :set_agenda, only: %i[show edit update destroy]
 
   def index
     @agendas = Agenda.all
@@ -26,7 +26,7 @@ class AgendasController < ApplicationController
     if @agenda.user_id == current_user.id || @agenda.team.owner_id == current_user.id
       @agenda.destroy
       redirect_to dashboard_path, notice: "アジェンダ:#{@agenda.title}を削除しました"
-      AgendaDestroyController.when_agenda_destroy_mailer(@agenda).deliver
+      AgendaDestroyMailer.agenda_destroy_mailer(@agenda).deliver
     else
       redirect_to dashboard_path, notice: "削除できません"
     end
