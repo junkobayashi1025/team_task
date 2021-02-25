@@ -34,6 +34,8 @@
               <i class="fa fa-circle-o nav-icon"></i>
               <p>
                 <%= agenda.title %>
+                <%= link_to '削除', agenda_path(agenda), method: :delete, class: 'btn btn-sm btn-danger agenda-delete', data: { confirm: "#{agenda.title}を削除しますか？" } %>
+                <%= link_to '削除', agenda, method: :delete, data: { confirm: "アジェンダ:「#{agenda.title}を削除します。よろしいでしょうか？」" }, class: 'btn btn-danger mr-3'%>
                 <i class="right fa fa-angle-left"></i>
               </p>
             </a>
