@@ -25,9 +25,9 @@ class AgendasController < ApplicationController
     @agenda = Agenda.find(params[:id])
     if @agenda.user_id == current_user.id || @agenda.team.owner_id == current_user.id
       @agenda.destroy
-      redirect_to dashboard_path
+      redirect_to dashboard_path, notice: "アジェンダ:#{@agenda.title}を削除しました"
     else
-      redirect_to dashboard_path
+      redirect_to dashboard_path, notice: "削除できません"
     end
   end
 
