@@ -30,6 +30,7 @@ gem 'seed-fu', '~> 2.3'
 
 # Authentication
 gem 'devise'
+gem 'nokogiri'
 
 group :development, :test do
   gem 'awesome_print'
