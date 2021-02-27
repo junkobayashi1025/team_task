@@ -1,8 +1,8 @@
 class ChangeOwnerMailer < ApplicationMailer
 
-  def change_owner_mail(email, team)
-    @email = email
+  def change_owner_mailer(user, team)
+    @user = user
     @team = team
-    mail to: @email, subject: '権限移動のお知らせメール'
+    mail to: @user.email, subject: '権限移動のお知らせメール'
   end
 end
